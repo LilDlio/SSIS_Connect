@@ -1,0 +1,2040 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/5/2023 7:54:56 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-IEMOD1N3"
+  DTS:CreatorName="LAPTOP-IEMOD1N3\Admin"
+  DTS:DTSID="{3EDDF6F5-08B5-4451-97C8-AEACD09AEE9D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5131.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="SSISPlus"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{56F3E53E-4859-4C2A-81C6-B744BECA5D1D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BikeStoresMySQL.root]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{79956385-80B9-43AC-87D6-9B42F0B4B7EC}"
+      DTS:ObjectName="BikeStoresMySQL.root">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=root;Dsn=BikeStoresMySQL;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAs/+/ltZN1US8Jpmmgw9hbwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD9BBf3fj1NjzwKe7HZtkW9lUXCVW/DLOX0tKyuZHpuyAAAAAAOgAAAAAIAACAAAAD4CjXG6DYBZ/g552852SUzIVZ8zIMhLgTTu1qRGmXd9SAAAACDdr6X7sYTzMx9m2Uw34i71ORlqud7yB8tRC+f0IxVGUAAAACNkaIWckmPFojfk5Hlb5/+U20HLDiLct6aowNxZE33W9Aw0jVApm5tz1D3mIE4Q027yVk8G1I6iuFISSSdTK8U</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-IEMOD1N3\SQLEXPRESS.BikeStores]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E067A9FF-0C1C-4633-891D-7C31A41AFAEF}"
+      DTS:ObjectName="LAPTOP-IEMOD1N3\SQLEXPRESS.BikeStores">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-IEMOD1N3\SQLEXPRESS;Initial Catalog=BikeStores;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{E067A9FF-0C1C-4633-891D-7C31A41AFAEF}LAPTOP-IEMOD1N3\SQLEXPRESS.BikeStores;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{27063946-D85D-4F67-8C69-E9F121A99ACD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="first_name"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="last_name"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="email"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="phone"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[phone]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[first_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[last_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[email]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[phone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[phone]"
+                      name="phone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[phone]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Database Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Fast Insert, Update, Upsert, Delete into any Database.; COZYROC LLC; SSIS+; © 2006-2022 COZYROC LLC; All Rights Reserved; http://www.cozyroc.com/;0"
+              description="Fast Insert, Update, Upsert, Delete into any Database."
+              name="Database Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies destination action type."
+                  name="Action"
+                  typeConverter="CozyRoc.SqlServer.SSIS.DatabaseDestination+ActionTypes">3</property>
+                <property
+                  dataType="System.String"
+                  description="Destination table, where rows would be inserted, updated, upserted or deleted."
+                  expressionType="Notify"
+                  name="DestinationTable"
+                  typeConverter="CozyRoc.SqlServer.SSIS.TableEditor">staffs</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of rows to be sent as a batch to the service."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of seconds allowed for a DB operation to complete before it is aborted. When value is 0 the connection manager timeout is used."
+                  name="Timeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Columns which type cannot be determined"
+                  name="ObjectColumnsNames"
+                  typeConverter="NOTBROWSABLE"></property>
+                <property
+                  dataType="System.String"
+                  description="SQL command to execute before the component execution."
+                  expressionType="Notify"
+                  name="BeforeScript"></property>
+                <property
+                  dataType="System.String"
+                  description="SQL command to execute after the component execution."
+                  expressionType="Notify"
+                  name="AfterScript"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Enable insert or update of identity column values."
+                  expressionType="Notify"
+                  name="IdentityInsert">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies additional connection settings in format &quot;key1=value1;key2=value2&quot;."
+                  expressionType="Notify"
+                  name="CustomSettings"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies temporary table schema and database."
+                  name="TempSchema"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies custom match clause which overrides the default simple clause."
+                  expressionType="Notify"
+                  name="OverrideMatchClause"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies OLE DB and ADO.NET bulk copy options."
+                  expressionType="Notify"
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Null"
+                  name="ComponentObject"
+                  typeConverter="NOTBROWSABLE" />
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">CozyRoc.DatabaseDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Database Destination.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BikeStoresMySQL.root]"
+                  connectionManagerRefId="Package.ConnectionManagers[BikeStoresMySQL.root]"
+                  description="Database Connection Manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Database Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].Columns[staff_id]"
+                      cachedDataType="i4"
+                      cachedName="staff_id"
+                      externalMetadataColumnId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[staff_id]"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[staff_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].Columns[first_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[first_name]"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].Columns[last_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[last_name]"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[last_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[email]"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].Columns[phone]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="phone"
+                      externalMetadataColumnId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[phone]"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[phone]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].Columns[active]"
+                      cachedDataType="ui1"
+                      cachedName="active"
+                      externalMetadataColumnId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[active]"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[active]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].Columns[store_id]"
+                      cachedDataType="i4"
+                      cachedName="store_id"
+                      externalMetadataColumnId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[store_id]"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[store_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].Columns[manager_id]"
+                      cachedDataType="i4"
+                      cachedName="manager_id"
+                      externalMetadataColumnId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[manager_id]"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[manager_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[staff_id]"
+                      dataType="i4"
+                      name="staff_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[first_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[last_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="510"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[phone]"
+                      dataType="wstr"
+                      length="50"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[active]"
+                      dataType="ui1"
+                      name="active" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[store_id]"
+                      dataType="i4"
+                      name="store_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input].ExternalColumns[manager_id]"
+                      dataType="i4"
+                      name="manager_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Database Destination.Outputs[Database Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Database Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Database Destination.Outputs[Database Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Database Destination.Outputs[Database Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Database Destination.Outputs[Database Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Database Destination.Outputs[Database Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Database Destination.Outputs[Database Destination Error Output].Columns[ErrorDescription]"
+                      dataType="wstr"
+                      length="1024"
+                      lineageId="Package\Data Flow Task\Database Destination.Outputs[Database Destination Error Output].Columns[ErrorDescription]"
+                      name="ErrorDescription" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\ODBC Source"
+              componentClassID="Microsoft.SSISODBCSrc"
+              contactInfo="ODBC Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="ODBC Source"
+              name="ODBC Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName">staffs</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM staffs</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for fetching data."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\ODBC Source.Connections[ODBCConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BikeStoresMySQL.root]"
+                  connectionManagerRefId="Package.ConnectionManagers[BikeStoresMySQL.root]"
+                  description="The ODBC runtime connection used to access the database."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="ODBC Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[staff_id]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[staff_id]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[staff_id]"
+                      name="staff_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[first_name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[first_name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[first_name]"
+                      name="first_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[last_name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[last_name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[last_name]"
+                      name="last_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[email]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[email]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[phone]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[phone]"
+                      length="25"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[phone]"
+                      name="phone" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[active]"
+                      dataType="ui1"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[active]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[active]"
+                      name="active" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[store_id]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[store_id]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[store_id]"
+                      name="store_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[manager_id]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[manager_id]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[manager_id]"
+                      name="manager_id" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[staff_id]"
+                      dataType="i4"
+                      name="staff_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[first_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[last_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="255"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[phone]"
+                      dataType="wstr"
+                      length="25"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[active]"
+                      dataType="ui1"
+                      name="active" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[store_id]"
+                      dataType="i4"
+                      name="store_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[manager_id]"
+                      dataType="i4"
+                      name="manager_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[staff_id]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[staff_id]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[staff_id]"
+                      name="staff_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[first_name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[first_name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[first_name]"
+                      name="first_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[last_name]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[last_name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[last_name]"
+                      name="last_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[email]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[email]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[phone]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[phone]"
+                      length="25"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[phone]"
+                      name="phone" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[active]"
+                      dataType="ui1"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[active]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[active]"
+                      name="active" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[store_id]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[store_id]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[store_id]"
+                      name="store_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[manager_id]"
+                      dataType="i4"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[manager_id]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[manager_id]"
+                      name="manager_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[sales].[staffs]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT staff_id, first_name, last_name, email, phone, active, store_id, manager_id
+FROM     sales.staffs</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-IEMOD1N3\SQLEXPRESS.BikeStores]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-IEMOD1N3\SQLEXPRESS.BikeStores]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[staff_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[staff_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[staff_id]"
+                      name="staff_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[phone]"
+                      length="25"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[phone]"
+                      name="phone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[active]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[active]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[active]"
+                      name="active"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[store_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[store_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[store_id]"
+                      name="store_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[manager_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[manager_id]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[manager_id]"
+                      name="manager_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[staff_id]"
+                      dataType="i4"
+                      name="staff_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[active]"
+                      dataType="ui1"
+                      name="active" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[store_id]"
+                      dataType="i4"
+                      name="store_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[manager_id]"
+                      dataType="i4"
+                      name="manager_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[staff_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[staff_id]"
+                      name="staff_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      name="first_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      name="last_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[phone]"
+                      name="phone" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[active]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[active]"
+                      name="active" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[store_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[store_id]"
+                      name="store_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[manager_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[manager_id]"
+                      name="manager_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Table Difference"
+              componentClassID="Microsoft.ManagedComponentHost"
+              description="Find the difference between two data flows."
+              name="Table Difference"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">CozyRoc.TableDifference</property>
+                <property
+                  containsID="true"
+                  dataType="System.Int32"
+                  isArray="true"
+                  name="NewInputLineageIDs">
+                  <arrayElements
+                    arrayElementCount="8">
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[active]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[email]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[first_name]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[last_name]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[manager_id]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[phone]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[staff_id]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[store_id]}</arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  containsID="true"
+                  dataType="System.Int32"
+                  isArray="true"
+                  name="OldInputLineageIDs">
+                  <arrayElements
+                    arrayElementCount="8">
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[active]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[email]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[first_name]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[last_name]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[manager_id]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[phone]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[staff_id]}</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[store_id]}</arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.Int32"
+                  isArray="true"
+                  name="KeyOrders">
+                  <arrayElements
+                    arrayElementCount="8">
+                    <arrayElement
+                      dataType="System.Int32">0</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">0</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">0</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">0</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">0</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">0</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">0</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">0</arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.Int32"
+                  isArray="true"
+                  name="UpdateIDs">
+                  <arrayElements
+                    arrayElementCount="8">
+                    <arrayElement
+                      dataType="System.Int32">10</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">10</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">10</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">10</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">10</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">10</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">10</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">10</arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.Int32"
+                  isArray="true"
+                  name="CheckOptions">
+                  <arrayElements
+                    arrayElementCount="8">
+                    <arrayElement
+                      dataType="System.Int32">1</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">1</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">1</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">1</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">1</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">1</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">1</arrayElement>
+                    <arrayElement
+                      dataType="System.Int32">1</arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  isArray="true"
+                  name="Names">
+                  <arrayElements
+                    arrayElementCount="8">
+                    <arrayElement
+                      dataType="System.String">active</arrayElement>
+                    <arrayElement
+                      dataType="System.String">email</arrayElement>
+                    <arrayElement
+                      dataType="System.String">first_name</arrayElement>
+                    <arrayElement
+                      dataType="System.String">last_name</arrayElement>
+                    <arrayElement
+                      dataType="System.String">manager_id</arrayElement>
+                    <arrayElement
+                      dataType="System.String">phone</arrayElement>
+                    <arrayElement
+                      dataType="System.String">staff_id</arrayElement>
+                    <arrayElement
+                      dataType="System.String">store_id</arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.Int32"
+                  name="StringCompareCultureId">0</property>
+                <property
+                  dataType="System.Boolean"
+                  name="StringCompareIgnoreCase">false</property>
+                <property
+                  dataType="System.Boolean"
+                  name="StringCompareIgnoreKana">false</property>
+                <property
+                  dataType="System.Boolean"
+                  name="StringCompareIgnoreWidth">false</property>
+                <property
+                  dataType="System.Boolean"
+                  name="StringCompareIgnoreNonSpace">false</property>
+                <property
+                  dataType="System.Boolean"
+                  name="StringCompareIgnoreSymbols">false</property>
+                <property
+                  dataType="System.Boolean"
+                  name="StringCompareSort">false</property>
+                <property
+                  dataType="System.Boolean"
+                  name="EnableLogOutput"
+                  typeConverter="NOTBROWSABLE">false</property>
+                <property
+                  dataType="System.Boolean"
+                  name="IncludeInputColumnsInLogOutput">false</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Table Difference.Inputs[New Data Flow]"
+                  name="New Data Flow">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="InputType">NEW</property>
+                  </properties>
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[New Data Flow].Columns[staff_id]"
+                      cachedDataType="i4"
+                      cachedName="staff_id"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[staff_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[New Data Flow].Columns[first_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="first_name"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[New Data Flow].Columns[last_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="last_name"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[last_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[New Data Flow].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[New Data Flow].Columns[phone]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="phone"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[phone]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[New Data Flow].Columns[active]"
+                      cachedDataType="ui1"
+                      cachedName="active"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[active]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[New Data Flow].Columns[store_id]"
+                      cachedDataType="i4"
+                      cachedName="store_id"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[store_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[New Data Flow].Columns[manager_id]"
+                      cachedDataType="i4"
+                      cachedName="manager_id"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[manager_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\Table Difference.Inputs[Old Data Flow]"
+                  name="Old Data Flow">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="InputType">OLD</property>
+                  </properties>
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[Old Data Flow].Columns[staff_id]"
+                      cachedDataType="i4"
+                      cachedName="staff_id"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[staff_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[Old Data Flow].Columns[active]"
+                      cachedDataType="ui1"
+                      cachedName="active"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[active]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[Old Data Flow].Columns[store_id]"
+                      cachedDataType="i4"
+                      cachedName="store_id"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[store_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[Old Data Flow].Columns[manager_id]"
+                      cachedDataType="i4"
+                      cachedName="manager_id"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[manager_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[Old Data Flow].Columns[first_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="first_name"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[Old Data Flow].Columns[last_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="last_name"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[last_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[Old Data Flow].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Table Difference.Inputs[Old Data Flow].Columns[phone]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="phone"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[phone]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10]"
+                  description="Updated rows with change on ID less or equal to 10"
+                  name="Update ID 10">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="OutputType">Updated</property>
+                    <property
+                      dataType="System.Int32"
+                      name="UpdateId">10</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[active]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[active]"
+                      name="active">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[email]"
+                      name="email">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[first_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[first_name]"
+                      name="first_name">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">2</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[last_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[last_name]"
+                      name="last_name">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">3</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[manager_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[manager_id]"
+                      name="manager_id">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">4</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[phone]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[phone]"
+                      name="phone">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">5</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[staff_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[staff_id]"
+                      name="staff_id">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">6</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[store_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Update ID 10].Columns[store_id]"
+                      name="store_id">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">7</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Table Difference.Outputs[New]"
+                  description="New rows present in the new input but not in the old one"
+                  name="New">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="OutputType">New</property>
+                    <property
+                      dataType="System.Int32"
+                      name="UpdateId">0</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[active]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[active]"
+                      name="active">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[email]"
+                      name="email">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[first_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[first_name]"
+                      name="first_name">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">2</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[last_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[last_name]"
+                      name="last_name">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">3</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[manager_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[manager_id]"
+                      name="manager_id">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">4</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[phone]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[phone]"
+                      name="phone">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">5</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[staff_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[staff_id]"
+                      name="staff_id">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">6</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[store_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[New].Columns[store_id]"
+                      name="store_id">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">7</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Table Difference.Outputs[Deleted]"
+                  description="Deleted rows present in the old input but not in the new one"
+                  name="Deleted">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="OutputType">Deleted</property>
+                    <property
+                      dataType="System.Int32"
+                      name="UpdateId">0</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[active]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[active]"
+                      name="active">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[email]"
+                      name="email">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[first_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[first_name]"
+                      name="first_name">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">2</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[last_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[last_name]"
+                      name="last_name">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">3</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[manager_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[manager_id]"
+                      name="manager_id">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">4</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[phone]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[phone]"
+                      name="phone">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">5</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[staff_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[staff_id]"
+                      name="staff_id">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">6</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[store_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[store_id]"
+                      name="store_id">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="OutputColumnType">7</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[active]"
+                      cachedDataType="ui1"
+                      cachedName="active"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[active]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[active]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[email]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[email]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[first_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="first_name"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[first_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[first_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[last_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="last_name"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[last_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[last_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[manager_id]"
+                      cachedDataType="i4"
+                      cachedName="manager_id"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[manager_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[manager_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[phone]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="phone"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[phone]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[phone]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[staff_id]"
+                      cachedDataType="i4"
+                      cachedName="staff_id"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[staff_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[staff_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[store_id]"
+                      cachedDataType="i4"
+                      cachedName="store_id"
+                      lineageId="Package\Data Flow Task\Table Difference.Outputs[Deleted].Columns[store_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[store_id]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\Union All.Inputs[Union All Input 1]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[active]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[active]"
+                      name="active" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[first_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[first_name]"
+                      name="first_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[last_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[last_name]"
+                      name="last_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[manager_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[manager_id]"
+                      name="manager_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[phone]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[phone]"
+                      name="phone" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[staff_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[staff_id]"
+                      name="staff_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[store_id]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[store_id]"
+                      name="store_id" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task\Table Difference.Inputs[Old Data Flow]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Deleted]"
+              endId="Package\Data Flow Task\Union All.Inputs[Union All Input 2]"
+              name="Deleted"
+              startId="Package\Data Flow Task\Table Difference.Outputs[Deleted]" />
+            <path
+              refId="Package\Data Flow Task.Paths[ODBC Source Output]"
+              endId="Package\Data Flow Task\Table Difference.Inputs[New Data Flow]"
+              name="ODBC Source Output"
+              startId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Union All Output 1]"
+              endId="Package\Data Flow Task\Database Destination.Inputs[Database Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Data Flow Task\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Data Flow Task\ODBC Source"
+          TopLeft="512.090883051131,68.9060603737591" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="209.136352510164,32.5242422363192" />
+        <NodeLayout
+          Size="177.6,41.6"
+          Id="Package\Data Flow Task\Database Destination"
+          TopLeft="350.490895754371,389.863634584393" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Data Flow Task\Data Conversion"
+          TopLeft="161.66665783359,98.7999993129572" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="285.136352510164,74.1242422363192">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45.4696946765736,24.675757076638"
+              Start="0,0"
+              End="-45.4696946765736,17.175757076638">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.33787853831898" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.33787853831898"
+                    Point2="0,12.337878538319"
+                    Point3="-4,12.337878538319" />
+                  <mssgle:LineSegment
+                    End="-41.4696946765736,12.337878538319" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-41.4696946765736,12.337878538319"
+                    Point2="-45.4696946765736,12.337878538319"
+                    Point3="-45.4696946765736,16.337878538319" />
+                  <mssgle:LineSegment
+                    End="-45.4696946765736,17.175757076638" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Data Flow Task\Table Difference"
+          TopLeft="395.897414266555,207.133331892954" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="239.66665783359,140.399999312957">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="209.030756432965,66.7333325799969"
+              Start="0,0"
+              End="209.030756432965,59.2333325799969">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.6293328859674" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.6293328859674"
+                    Point2="0,39.6293328859674"
+                    Point3="4,39.6293328859674" />
+                  <mssgle:LineSegment
+                    End="205.030756432965,39.6293328859674" />
+                  <mssgle:CubicBezierSegment
+                    Point1="205.030756432965,39.6293328859674"
+                    Point2="209.030756432965,39.6293328859674"
+                    Point3="209.030756432965,43.6293328859674" />
+                  <mssgle:LineSegment
+                    End="209.030756432965,59.2333325799969" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[ODBC Source Output]"
+          TopLeft="584.090883051131,110.506060373759">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-86.5934687845763,96.627271519195"
+              Start="0,0"
+              End="-86.5934687845763,89.127271519195">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.381733548322" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.381733548322"
+                    Point2="0,57.381733548322"
+                    Point3="-4,57.381733548322" />
+                  <mssgle:LineSegment
+                    End="-82.5934687845763,57.381733548322" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-82.5934687845763,57.381733548322"
+                    Point2="-86.5934687845763,57.381733548322"
+                    Point3="-86.5934687845763,61.381733548322" />
+                  <mssgle:LineSegment
+                    End="-86.5934687845763,89.127271519195" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Data Flow Task\Union All"
+          TopLeft="440.192283641261,305.533331208693" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Union All Output 1]"
+          TopLeft="500.192283641261,347.133331208693">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-60.9013878868903,42.7303033757003"
+              Start="0,0"
+              End="-60.9013878868903,35.2303033757003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.3651516878501" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.3651516878501"
+                    Point2="0,21.3651516878501"
+                    Point3="-4,21.3651516878501" />
+                  <mssgle:LineSegment
+                    End="-56.9013878868903,21.3651516878501" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-56.9013878868903,21.3651516878501"
+                    Point2="-60.9013878868903,21.3651516878501"
+                    Point3="-60.9013878868903,25.3651516878501" />
+                  <mssgle:LineSegment
+                    End="-60.9013878868903,35.2303033757003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Deleted]"
+          TopLeft="473.097414266555,248.733331892954">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.0948693747066,56.7999993157387"
+              Start="0,0"
+              End="27.0948693747066,49.2999993157387">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3999996578694" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.3999996578694"
+                    Point2="0,28.3999996578694"
+                    Point3="4,28.3999996578694" />
+                  <mssgle:LineSegment
+                    End="23.0948693747066,28.3999996578694" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.0948693747066,28.3999996578694"
+                    Point2="27.0948693747066,28.3999996578694"
+                    Point3="27.0948693747066,32.3999996578694" />
+                  <mssgle:LineSegment
+                    End="27.0948693747066,49.2999993157387" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-3.6105535938967,33.3999996578694,34.3159765625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
